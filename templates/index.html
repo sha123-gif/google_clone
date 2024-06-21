@@ -1,0 +1,8 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the World of Information</h1>
+    {% if 'user_id' not in session %}
+    <p class="lead">Please login to explore more.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}" role="button">Login</a> {% else %} <a class="btn btn-primary btn-lg" href="{{ url_for('search') }}" role="button">Search</a> {% endif %}
+</div>
+{% endblock %}

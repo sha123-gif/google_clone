@@ -1,0 +1,19 @@
+{% extends 'layout.html' %} {% block content %}
+<h1>Search Results for "{{ query }}"</h1>
+<div class="row">
+    {% for result in results %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            {% if result.pagemap and result.pagemap.cse_image %}
+            <img src="{{ result.pagemap.cse_image[0].src }}" class="card-img-top" alt="{{ result.title }}"> {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ result.link }}" target="_blank">{{ result.title }}</a></h5>
+                {% if result.snippet %}
+                <p class="card-text">{{ result.snippet }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
